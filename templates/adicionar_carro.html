@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Carro</title>
+</head>
+<body>
+    <h1>Adicionar Carro</h1>
+    <form action="/adicionar_carro" method="POST">
+        <label>Marca:</label>
+        <input type="text" name="marca" required><br>
+
+        <label>Modelo:</label>
+        <input type="text" name="modelo" required><br>
+
+        <label>Quilometragem:</label>
+        <input type="number" name="quilometragem" required><br>
+
+        <label>Placa:</label>
+        <input type="text" name="placa" required><br>
+
+        <label>Cliente:</label>
+        <select name="cliente_id" required>
+            <option value="">-- Selecione um Cliente --</option>
+            {% for cliente in clientes %}
+                <option value="{{ cliente[0] }}">{{ cliente[1] }}</option>
+            {% endfor %}
+        </select><br>
+
+        <button type="submit">Adicionar Carro</button>
+    </form>
+</body>
+</html>

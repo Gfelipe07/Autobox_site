@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Cliente</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Adicionar Cliente</h1>
+    <form action="/adicionar_cliente" method="POST">
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" required><br>
+
+        <label for="cpf">CPF:</label>
+        <input type="text" name="cpf" required><br>
+
+        <label for="endereco">Endereço:</label>
+        <input type="text" name="endereco" required><br>
+
+        <label for="contato">Contato:</label>
+        <input type="text" name="contato" required><br>
+
+        <button type="submit">Adicionar Cliente</button>
+    </form>
+</body>
+</html>

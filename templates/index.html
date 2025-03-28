@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oficina [Nome da Sua Oficina]</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+              <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo da Oficina" width="150">
+
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#clientes"><i class="fas fa-users"></i> Clientes</a></li>
+                    <li><a href="#carros"><i class="fas fa-car"></i> Carros</a></li>
+                    <li><a href="/adicionar_cliente"><i class="fas fa-user-plus"></i> Adicionar Cliente</a></li>
+                    <li><a href="/adicionar_carro"><i class="fas fa-car-plus"></i> Adicionar Carro</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="clientes">
+            <h2><i class="fas fa-users"></i> Clientes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Endereço</th>
+                        <th>Contato</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cliente in clientes %}
+                    <tr>
+                        <td>{{ cliente[1] }}</td>
+                        <td>{{ cliente[2] }}</td>
+                        <td>{{ cliente[3] }}</td>
+                        <td>{{ cliente[4] }}</td>
+                        <td>
+                            <a href="/editar_cliente/{{ cliente[0] }}"><i class="fas fa-edit"></i> Editar</a>
+                            <a href="/deletar_cliente/{{ cliente[0] }}" class="delete-button"><i class="fas fa-trash-alt"></i> Deletar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        <section id="carros">
+            <h2><i class="fas fa-car"></i> Carros</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Quilometragem</th>
+                        <th>Placa</th>
+                        <th>Cliente</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for carro in carros %}
+                    <tr>
+                        <td>{{ carro[1] }}</td>
+                        <td>{{ carro[2] }}</td>
+                        <td>{{ carro[3] }}</td>
+                        <td>{{ carro[4] }}</td>
+                        <td>{{ carro[5] }}</td>
+                        <td>
+                            <a href="/editar_carro/{{ carro[0] }}"><i class="fas fa-edit"></i> Editar</a>
+                            <a href="/deletar_carro/{{ carro[0] }}" class="delete-button"><i class="fas fa-trash-alt"></i> Deletar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; {{2025}} Autobox Curitiba. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
