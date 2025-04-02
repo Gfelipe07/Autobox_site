@@ -1,76 +1,58 @@
-body {
-    font-family: 'Open Sans', sans-serif;
+/* Resetando margens e preenchimentos */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    box-sizing: border-box;
 }
 
+/* Fonte básica */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Estilo do header */
 header {
     background-color: #333;
-    color: white;
-    padding: 20px 0;
-}
-
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header .logo a {
-    color: white;
-    text-decoration: none;
-    font-size: 24px;
-}
-
-header nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-}
-
-header nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
+    color: #fff;
+    text-align: center;
     padding: 20px;
 }
 
-h2 {
-    font-size: 24px;
-    margin-bottom: 15px;
+header img {
+    max-width: 150px; /* Define um tamanho máximo para a logo */
 }
 
+/* Estilo para os botões e links */
+button, a {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover, a:hover {
+    background-color: #555;
+}
+
+/* Formatação das tabelas */
 table {
     width: 100%;
+    margin-top: 20px;
     border-collapse: collapse;
 }
 
-table th, table td {
+th, td {
     padding: 10px;
-    text-align: left;
     border: 1px solid #ddd;
 }
 
-table th {
-    background-color: #f8f8f8;
-}
-
-.delete-button {
-    color: red;
-}
-
-footer {
+th {
     background-color: #333;
     color: white;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 }

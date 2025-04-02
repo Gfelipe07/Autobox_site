@@ -1,32 +1,16 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Editar Carro</title>
-</head>
-<body>
-    <h1>Editar Carro</h1>
-    <form action="/editar_carro/{{ carro[0] }}" method="POST">
-        <label>Marca:</label>
-        <input type="text" name="marca" value="{{ carro[1] }}" required><br>
+{% extends "base.html" %}
 
-        <label>Modelo:</label>
-        <input type="text" name="modelo" value="{{ carro[2] }}" required><br>
-
-        <label>Quilometragem:</label>
-        <input type="text" name="quilometragem" value="{{ carro[3] }}" required><br>
-
-        <label>Placa:</label>
-        <input type="text" name="placa" value="{{ carro[4] }}" required><br>
-
-        <label>Cliente:</label>
-        <select name="cliente_id" required>
-            {% for cliente in clientes %}
-                <option value="{{ cliente[0] }}" {% if cliente[0] == carro[5] %}selected{% endif %}>{{ cliente[1] }}</option>
-            {% endfor %}
-        </select><br>
-
-        <button type="submit">Atualizar Carro</button>
-    </form>
-</body>
-</html>
+{% block content %}
+<h2>Editar Carro</h2>
+<form method="post">
+    <label>Marca:</label>
+    <input type="text" name="marca" value="{{ carro[1] }}">
+    <label>Modelo:</label>
+    <input type="text" name="modelo" value="{{ carro[2] }}">
+    <label>Quilometragem:</label>
+    <input type="number" name="km" value="{{ carro[3] }}">
+    <label>Placa:</label>
+    <input type="text" name="placa" value="{{ carro[4] }}">
+    <button type="submit">Salvar</button>
+</form>
+{% endblock %}
