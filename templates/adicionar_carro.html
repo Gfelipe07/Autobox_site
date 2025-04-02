@@ -1,33 +1,27 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Adicionar Carro</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block content %}
     <h1>Adicionar Carro</h1>
-    <form action="/adicionar_carro" method="POST">
-        <label>Marca:</label>
-        <input type="text" name="marca" required><br>
+    <form method="POST">
+        <label for="marca">Marca:</label>
+        <input type="text" id="marca" name="marca" required>
 
-        <label>Modelo:</label>
-        <input type="text" name="modelo" required><br>
+        <label for="modelo">Modelo:</label>
+        <input type="text" id="modelo" name="modelo" required>
 
-        <label>Quilometragem:</label>
-        <input type="number" name="quilometragem" required><br>
+        <label for="quilometragem">Quilometragem:</label>
+        <input type="text" id="quilometragem" name="quilometragem" required>
 
-        <label>Placa:</label>
-        <input type="text" name="placa" required><br>
+        <label for="placa">Placa:</label>
+        <input type="text" id="placa" name="placa" required>
 
-        <label>Cliente:</label>
+        <label for="cliente_id">Cliente:</label>
         <select name="cliente_id" required>
-            <option value="">-- Selecione um Cliente --</option>
             {% for cliente in clientes %}
                 <option value="{{ cliente[0] }}">{{ cliente[1] }}</option>
             {% endfor %}
-        </select><br>
+        </select>
 
-        <button type="submit">Adicionar Carro</button>
+        <button type="submit">Adicionar</button>
     </form>
-</body>
-</html>
+{% endblock %}

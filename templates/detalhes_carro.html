@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Carro</title>
+</head>
+<body>
+    <h1>Detalhes do Carro</h1>
+    <p><strong>Marca:</strong> {{ carro['marca'] }}</p>
+    <p><strong>Modelo:</strong> {{ carro['modelo'] }}</p>
+    <p><strong>Placa:</strong> {{ carro['placa'] }}</p>
+    <p><strong>Quilometragem:</strong> {{ carro['quilometragem'] }} km</p>
+
+    <h2>Serviços Realizados:</h2>
+    {% if servicos %}
+        <ul>
+            {% for servico in servicos %}
+                <li>{{ servico['descricao'] }} - {{ servico['data_servico'] }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Não há serviços registrados para este carro.</p>
+    {% endif %}
+</body>
+</html>
